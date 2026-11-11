@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%275%27 fill=%27%23f4ead8%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2710%27 fill=%27none%27 stroke=%27%23a8281f%27 stroke-width=%273%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%273.5%27 fill=%27%232f4a7a%27/%3E%3C/svg%3E">
+<title>종로 지물포의 봄</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/game.css?v=20261111010146">
+</head>
+<body>
+<canvas id="gl" aria-label="1919년 종로 거리"></canvas>
+<div id="vignette"></div>
+
+<div id="hud">
+  <div id="chip"></div>
+  <div id="goal"><i id="goal-arrow">▲</i><span id="goal-label"></span></div>
+  <div id="hud-btns">
+    <button id="btn-note" title="읽기 수첩 (Tab)">읽기 수첩</button>
+    <button id="btn-help" title="도움말">도움말</button>
+    <button id="btn-sound" title="소리">소리 켜짐</button>
+  </div>
+</div>
+<div id="markers"></div>
+<button id="prompt"><kbd>스페이스</kbd> <span id="prompt-label"></span></button>
+<div id="keys"><kbd>↑</kbd><kbd>↓</kbd> 걷기 &nbsp; <kbd>←</kbd><kbd>→</kbd> 돌기 &nbsp; <kbd>스페이스</kbd> 하기 &nbsp; <kbd>Tab</kbd> 수첩</div>
+<div id="pad">
+  <button id="pad-left" aria-label="왼쪽으로 돌기">◀</button>
+  <div><button id="pad-up" aria-label="앞으로 걷기">▲</button><button id="pad-down" aria-label="뒤로 걷기">▼</button></div>
+  <button id="pad-right" aria-label="오른쪽으로 돌기">▶</button>
+</div>
+
+<img id="dlg-portrait" alt="">
+<div id="dlg"><div id="dlg-name"></div><div id="dlg-text"></div><div id="dlg-next">▼ 스페이스</div></div>
+
+<div id="toasts"></div>
+<div id="screen"></div>
+<div id="overlay"></div>
+<div id="fade"></div>
+<div id="loading"><div class="ink-dot"></div><span id="loading-text">준비하는 중…</span></div>
+
+<script src="js/config.js?v=20261111010146"></script>
+<script src="data/cards.js?v=20261111010146"></script>
+<script src="data/quizzes.js?v=20261111010146"></script>
+<script src="data/story.js?v=20261111010146"></script>
+<script src="js/store.js?v=20261111010146"></script>
+<script src="js/audio.js?v=20261111010146"></script>
+<script src="js/gl3d.js?v=20261111010146"></script>
+<script src="js/world.js?v=20261111010146"></script>
+<script src="js/ui.js?v=20261111010146"></script>
+<script src="js/game.js?v=20261111010146"></script>
+</body>
+</html>

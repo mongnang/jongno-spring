@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%275%27 fill=%27%23f4ead8%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2710%27 fill=%27none%27 stroke=%27%23a8281f%27 stroke-width=%273%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%273.5%27 fill=%27%232f4a7a%27/%3E%3C/svg%3E">
+<title>선생님 화면 · 종로 지물포의 봄</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root { --hanji:#f6efe1; --ink:#2b2320; --ink2:#665648; --red:#a8281f; --indigo:#2f4a7a; --line:#d2c3a6; --ok:#3c6e47; --mid:#b9851c; }
+* { box-sizing:border-box; } body { margin:0; background:var(--hanji); color:var(--ink); font-family:'Gowun Batang','Batang',serif; font-size:16px; line-height:1.6; }
+header { background:var(--ink); color:#f6efe1; padding:.8em 1.4em; display:flex; align-items:center; gap:1em; flex-wrap:wrap; }
+header h1 { font-size:1.2em; margin:0; } header a { color:#cfdcf2; margin-left:auto; }
+button, select, input { font-family:inherit; font-size:inherit; }
+.btn { background:#fffaf0; border:1px solid #a48f6c; border-radius:4px; padding:.35em .9em; cursor:pointer; } .btn:hover { background:#fff; } .btn.primary { background:var(--indigo); color:#fff; border-color:var(--indigo); }
+#load { padding:1em 1.4em; display:flex; gap:.6em; align-items:center; flex-wrap:wrap; border-bottom:1px solid var(--line); background:#fbf6ea; }
+#status { color:var(--ink2); font-size:.9em; }
+nav { display:flex; gap:.3em; padding:.8em 1.4em 0; border-bottom:2px solid var(--indigo); } nav button { border:1px solid var(--line); border-bottom:0; background:transparent; border-radius:6px 6px 0 0; padding:.35em 1.1em; cursor:pointer; } nav button.on { background:var(--indigo); color:#fff; font-weight:700; }
+main { padding:1.2em 1.4em 4em; }
+table { border-collapse:collapse; background:#fffdf7; } th, td { border:1px solid var(--line); padding:.25em .5em; text-align:left; vertical-align:top; } th { background:#efe5cf; position:sticky; top:0; }
+.grid td.c { text-align:center; cursor:pointer; min-width:2.2em; } .grid td.c:hover { outline:2px solid var(--indigo); } .grid th.q { font-size:.72em; max-width:5.5em; font-weight:400; }
+.g상 { background:#dcefd9; } .g중 { background:#f7ecc6; } .g하 { background:#f6d7d2; } .ans { background:#eef2f8; } .none { color:#bbb; }
+.card { background:#fffdf7; border:1px solid var(--line); border-left:5px solid var(--indigo); border-radius:4px; padding:.7em 1em; margin:.7em 0; }
+.card h3 { margin:0 0 .3em; font-size:1.02em; } .q { color:var(--ink2); font-size:.88em; margin-top:.5em; } .a { white-space:pre-wrap; margin:.1em 0 .3em; padding:.3em .6em; background:#fbf6ea; border-radius:3px; }
+.meta { font-size:.8em; color:var(--ink2); } .tagx { display:inline-block; font-size:.75em; border:1px solid var(--line); border-radius:2em; padding:0 .6em; margin-right:.3em; background:#fff; }
+.tagx.warn { border-color:var(--red); color:var(--red); }
+.grade button { margin-right:.2em; } .grade button.on.상 { background:var(--ok); color:#fff; } .grade button.on.중 { background:var(--mid); color:#fff; } .grade button.on.하 { background:var(--red); color:#fff; }
+.rubric { background:#fbf6ea; border:1px dashed var(--line); padding:.5em .9em; border-radius:4px; font-size:.9em; } .rubric b { color:var(--red); }
+.bar { display:flex; gap:.6em; align-items:center; margin-bottom:.8em; flex-wrap:wrap; } .wrap { overflow:auto; max-height:72vh; border:1px solid var(--line); }
+.link { margin:1em 1.4em 0; background:#fffdf7; border:1px solid var(--line); border-left:5px solid var(--red); border-radius:4px; padding:.9em 1.2em 1.1em; max-width:60em; }
+.link h2 { margin:0 0 .2em; font-size:1.15em; } .link ol { margin:.6em 0 0; padding-left:1.4em; } .link li { margin:.55em 0; } .link li > b.t { display:block; }
+.link input[type=text], .link input[type=password] { width:min(34em, 100%); padding:.3em .5em; border:1px solid #a48f6c; border-radius:4px; background:#fff; }
+.link .row { display:flex; gap:.5em; align-items:center; flex-wrap:wrap; margin:.25em 0; } .link .row label { min-width:6.5em; }
+.link .ok { color:var(--ok); font-weight:700; } .link .bad { color:var(--red); font-weight:700; } .link .mark { background:#fff2cc; border-radius:3px; padding:0 .35em; font-weight:700; }
+.note { color:var(--ink2); font-size:.9em; } textarea.out { width:100%; height:14em; font-family:inherit; font-size:.95em; }
+</style>
+</head>
+<body>
+<header><h1>선생님 화면 · 종로 지물포의 봄</h1><span id="count"></span><a href="index.html">게임으로 가기</a></header>
+<div id="load">
+  <button class="btn" id="b-link">① 우리 반 연결하기</button>
+  <button class="btn primary" id="b-sheet">② 구글 시트에서 불러오기</button>
+  <label class="btn">학생 기록 파일 열기<input type="file" id="files" accept=".json" multiple hidden></label>
+  <button class="btn" id="b-demo">시범 자료로 둘러보기</button>
+  <span id="status">자료를 불러오세요. 구글 시트를 연결하지 않았다면 학생이 「내 기록 내려받기」로 낸 파일을 여러 개 한꺼번에 열 수 있습니다.</span>
+</div>
+<section class="link" id="link" hidden>
+  <h2>우리 반 연결하기</h2>
+  <p class="note">학생 답을 <b>내 구글 스프레드시트</b>로 받는 준비입니다. 처음 한 번만 하면 됩니다. 그림으로 된 안내: <a href="docs/우리 반 연결 안내.pptx">우리 반 연결 안내(PPT) 받기</a></p>
+  <ol>
+    <li><b class="t">내 스프레드시트 만들기</b><span id="l-step1"></span></li>
+    <li><b class="t">웹 앱으로 배포하기</b>스프레드시트에서 <b>확장 프로그램 → Apps Script</b>를 열고, 오른쪽 위 <b>배포 → 새 배포 → 웹 앱</b>을 고릅니다. 「실행: 나」, 「액세스 권한: 모든 사용자」로 두고 <b>배포</b>를 누릅니다. 처음에는 권한을 허용해 달라는 창이 뜹니다.</li>
+    <li><b class="t">주소와 암호 붙여 넣기</b>
+      <div class="row"><label for="l-url">웹 앱 주소</label><input type="text" id="l-url" placeholder="https://script.google.com/macros/s/…/exec" autocomplete="off"></div>
+      <div class="row"><label for="l-key">선생님 암호</label><input type="password" id="l-key" placeholder="스프레드시트 「설정」 시트의 B1 칸" autocomplete="off">
+        <label style="min-width:0"><input type="checkbox" id="l-show"> 보기</label></div>
+      <div class="row"><label></label><label style="min-width:0"><input type="checkbox" id="l-keep"> 이 컴퓨터에 암호 기억하기 (나만 쓰는 컴퓨터일 때만)</label></div>
+      <div class="row"><label></label><button class="btn primary" id="l-test">연결 확인</button><span id="l-msg" class="note"></span></div></li>
+    <li><b class="t">학생에게 나눠 줄 주소</b>
+      <div class="row"><input type="text" id="l-out" readonly placeholder="연결을 확인하면 여기에 주소가 나옵니다"><button class="btn" id="l-copy">복사</button><a id="l-open" target="_blank" rel="noopener" hidden>열어 보기</a></div>
+      <div class="note" id="l-note">학생은 이 주소로 들어와야 답이 내 시트로 옵니다. 학생 화면의 이름 쓰는 곳 아래에 <b>연결 표시</b> 네 글자가 보이면 맞게 들어온 것입니다.</div></li>
+  </ol>
+</section>
+<nav id="nav"></nav>
+<main id="main"><p class="note">아직 불러온 자료가 없습니다.</p></main>
+<script src="js/config.js?v=20261111010146"></script>
+<script src="data/cards.js?v=20261111010146"></script>
+<script src="data/quizzes.js?v=20261111010146"></script>
+<script src="data/story.js?v=20261111010146"></script>
+<script src="js/aiprompt.js?v=20261111010146"></script>
+<script src="js/teacher.js?v=20261111010146"></script>
+</body>
+</html>
