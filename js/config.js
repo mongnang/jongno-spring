@@ -10,7 +10,7 @@ window.CONFIG = {
   // 그냥 들어온 학생의 답은 그 기기에만 저장됩니다(「내 기록 내려받기」로 파일을 낼 수 있음).
   ENDPOINT: '',
   // 다른 선생님이 「사본 만들기」로 가져갈 스프레드시트 주소(…/copy 로 끝남). 있으면 선생님 화면에 단추가 생깁니다.
-  TEMPLATE_URL: '',
+  TEMPLATE_URL: 'https://docs.google.com/spreadsheets/d/1uSX9OuQNMnM1Ykn-dFWRRegTjxJKJx4a01n55IIRzZw/copy',
   // 첫 화면에서 「선생님」 버튼 → 이 암호를 넣으면 모든 장이 열립니다. (시트를 읽는 암호와는 다른 것입니다)
   TEACHER_CODE: '1919',
   // 배경음악: assets/audio 폴더의 mp3를 씁니다. 음악 없이 쓰려면 false 로 바꾸세요.
