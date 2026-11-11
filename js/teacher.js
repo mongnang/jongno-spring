@@ -158,10 +158,9 @@
   function saveConn(keep) {
     try { localStorage.setItem(LKEY, JSON.stringify(keep ? { url: conn.url, key: conn.key } : { url: conn.url })); sessionStorage.setItem(LKEY + ':k', conn.key); } catch (e) {}
   }
-  /* 시트에 묻기. 암호가 주소에 남지 않도록 먼저 본문에 실어 보내고, 그 길이 막혀 있으면 주소 방식으로 한 번 더 해 본다. */
+  /* 시트에 묻기. 암호는 본문에만 실어 보낸다(주소에 실으면 방문 기록 같은 곳에 남는다). */
   function ask(action) {
-    return fetch(conn.url, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: action, key: conn.key }) }).then(r => r.json())
-      .catch(() => fetch(conn.url + '?key=' + encodeURIComponent(conn.key) + (action === 'ping' ? '&ping=1' : '')).then(r => r.json()));
+    return fetch(conn.url, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: action, key: conn.key }) }).then(r => r.json());
   }
   /* 학생에게 나눠 줄 주소: 지금 이 화면이 올라가 있는 곳의 index.html 에 내 시트 표시를 붙인다 */
   function classLink() {
